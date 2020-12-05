@@ -1,5 +1,12 @@
 <template>
-  <poke-app></poke-app>
+  <Suspense>
+    <template #default>
+      <poke-app/>
+    </template>
+    <template #fallback>
+      <div>Loading pokemons</div>
+    </template>
+  </Suspense>
 </template>
 
 <script>
