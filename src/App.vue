@@ -1,12 +1,14 @@
 <template>
-  <Suspense>
-    <template #default>
-      <poke-app/>
-    </template>
-    <template #fallback>
-      <div>Loading pokemons</div>
-    </template>
-  </Suspense>
+  <div class="container" >
+    <Suspense>
+      <template #default>
+        <poke-app/>
+      </template>
+      <template #fallback>
+        <div>Loading pokemons</div>
+      </template>
+    </Suspense>
+  </div>
 </template>
 
 <script>
@@ -22,5 +24,7 @@ export default {
 </script>
 
 <style>
-
+  body{
+    background: rgb(41, 41, 41);
+  }
 </style>
