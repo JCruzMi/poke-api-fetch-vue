@@ -1,8 +1,8 @@
 <template>
     <div class="col-md-4 col-sm-6 col-xl-3" :v-if="poke.length" >
-        <div class="card" >
+        <div class="card" :style="poke.bg" >
             <div class="pokemon" >
-                <img :src="poke.sprites.other.dream_world.front_default" alt="" width="92" height="92">
+                <img :src="poke.img" alt="" width="92" height="92">
             </div>
             <div class="card-body" >
                 <li class="list-group-item d-flex justify-content-between align-items-center" >
@@ -22,7 +22,6 @@ export default {
 
 <style>
     .card {
-      background:rgb(255, 196, 0);
       align-items: center;
       margin: 10%;
       color: white;
