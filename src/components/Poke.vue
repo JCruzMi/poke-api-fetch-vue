@@ -11,7 +11,6 @@
                 <poke-footer
                 :poke="poke" 
                 />
-                
             </div>
         </div>
     </div>
