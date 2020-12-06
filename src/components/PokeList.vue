@@ -5,7 +5,7 @@
     v-for="poke in pokes"
       :key="poke.id"
     
-    :poke="poke" ></poke>
+    :poke="poke" />
   </div>
 </template>
 

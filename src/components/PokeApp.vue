@@ -38,7 +38,8 @@ export default {
                         'weight':pet.weight,
                         'exp':pet.base_experience,
                         'types':pet.types,
-                        'bg':{background : "#d67f44"}
+                        'bg':{background : "#d67f44"},
+                        'stats': false
                         }
 
       pokes.value.push(pok)
