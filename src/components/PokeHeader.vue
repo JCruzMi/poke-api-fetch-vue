@@ -1,16 +1,35 @@
 <template>
-    <div class="md-form active-purple active-purple-2 mb-3">
-        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-    </div>
+    <form @submit.prevent="filtrar">
+        <input
+            type="text"
+            class="form-control my-3"
+            placeholder="Buscar pokemon"
+            v-model.trim="texto"
+        >
+  </form>
 </template>
 
 <script>
 
-import {inject} from 'vue'
+import {ref, inject} from 'vue'
 
 export default {
     setup(){
-        const pokes = inject('pokes')
+        const estado = inject('estado')
+        
+        const texto = ref('')
+
+        const filtrar = () =>{
+            if(texto.value === ''){
+                estado.value = ''
+            }
+            else{
+                estado.value = texto.value
+            }
+        }
+        //return de la funcion que se usa en el componente
+        return {filtrar, texto}
+
     }
 }
 </script>

@@ -1,11 +1,10 @@
 <template>
-  <poke-header/>
   <Suspense>
     <template #default>
       <poke-list/>
     </template>
     <template #fallback>
-      <div>Loading pokemons</div>
+      <div><h1>Loading pokemons...</h1></div>
     </template>
   </Suspense>
 </template>
@@ -13,10 +12,9 @@
 <script>
 import PokeList from './PokeList.vue'
 import {ref, provide} from 'vue'
-import PokeHeader from './PokeHeader.vue'
 
 export default {
-  components: { PokeList, PokeHeader },
+  components: { PokeList },
   async setup(){
 
     function giveColor (type){
@@ -64,7 +62,7 @@ export default {
     const pokes = ref([])
     provide('pokes',pokes)
 
-    for ( let i = 1; i <= 10; i++){
+    for ( let i = 1; i <= 270 ; i++){
       const responsePoke = await fetch('https://pokeapi.co/api/v2/pokemon/'+i)
 
       let pet = await responsePoke.json()

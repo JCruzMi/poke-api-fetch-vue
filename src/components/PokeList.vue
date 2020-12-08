@@ -1,4 +1,6 @@
 <template>
+  <poke-header />
+
   <div class="row" >
     <poke 
     
@@ -11,19 +13,31 @@
 
 <script>
 
-import {inject} from 'vue'
+import {inject, provide, computed, ref} from 'vue'
 import Poke from './Poke.vue'
+import PokeHeader from './PokeHeader.vue'
 
 export default {
     components: {
-        Poke
+        Poke,
+        PokeHeader
     
     },
     async setup(){
 
-        const pokes = inject('pokes')
+        const AllPokes = inject('pokes')
 
-        console.log(pokes)
+        const estado = ref('')
+
+        const pokes = computed(() => {
+          if(estado.value === ''){
+            return AllPokes.value
+          }else{
+            return AllPokes.value.filter(item => item.id === estado.value-1+1 || item.name.includes(estado.value))
+          }
+        })
+
+        provide('estado', estado)
 
         return {pokes}
     },
