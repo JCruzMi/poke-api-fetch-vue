@@ -1,4 +1,5 @@
 <template>
+  <poke-header/>
   <Suspense>
     <template #default>
       <poke-list/>
@@ -12,9 +13,10 @@
 <script>
 import PokeList from './PokeList.vue'
 import {ref, provide} from 'vue'
+import PokeHeader from './PokeHeader.vue'
 
 export default {
-  components: { PokeList },
+  components: { PokeList, PokeHeader },
   async setup(){
 
     function giveColor (type){
