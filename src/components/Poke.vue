@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-4 col-sm-6 col-xl-3" >
+    <div class="col-md-12 col-sm-6 col-xl-3" v-if="poke.stats" >
         <div class="card" :style="poke.bg" >
             <div class="pokemon" >
                 <img :src="poke.img" alt="" width="92" height="92">
@@ -8,37 +8,52 @@
                 <li class="list-group-item d-flex justify-content-between align-items-center" >
                     <span>{{poke.name}}</span>
                 </li>
-                <poke-footer
-                :poke="poke" 
-                />
+                <poke-footer :poke="poke"></poke-footer>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-4 col-sm-6 col-xl-3" v-if="!poke.stats">
+        <div class="card" :style="poke.bg" >
+            <div class="pokemon" >
+                <img :src="poke.img" alt="" width="92" height="92">
+            </div>
+            <div class="card-body" >
+                <li class="list-group-item d-flex justify-content-between align-items-center" >
+                    <span>{{poke.name}}</span>
+                </li>
+                 <button type="button" class="btn btn-primary" data-toggle="modal" @click="onStatsClick(poke.id)">
+                    + stats
+                </button>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import PokeFooter from './PokeFooter.vue'
 import {inject} from 'vue'
+import PokeFooter from './PokeFooter.vue'
 
 export default {
     props: ["poke"],
     components:{
         PokeFooter
+        
     },
     setup(){
-        
-        const pokes = inject('pokes')
+         const pokes = inject('pokes')
 
         //cambia el valor stats para mostrar o no dando click al boton los elementos 
         const onStatsClick = id => {
             pokes.value = pokes.value.map(item => {
                 if(item.id === id){
                     item.stats = !item.stats
+                    console.log(item.stats)
                 }
                 return item
             })
         }
-
         return {onStatsClick}
     }
 }

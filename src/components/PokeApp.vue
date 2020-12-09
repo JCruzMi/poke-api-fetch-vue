@@ -17,49 +17,6 @@ export default {
   components: { PokeList },
   async setup(){
 
-   /**  function giveColor (type){
-        switch (type){
-          case 'normal':
-            return '#ffe175'
-          case 'fighting':
-            return '#ff6200'
-          case 'flying':
-            return '#008db0'
-          case 'ground':
-            return '#7f724a'
-          case 'rock':
-            return '#908a78'
-          case 'bug':
-            return '#85b100'
-          case 'steel':
-            return '#c5c5c5'
-          case 'fire':
-            return '#ff9000'
-          case 'water':
-            return '#00c3c7'
-          case 'grass':
-            return '#abff4d'
-          case 'electric':
-            return '#fffd4d'
-          case 'psychic':
-            return '#613dfe'
-          case 'ice':
-            return '#97cdff'
-          case 'dragon':
-            return '#ff335c'
-          case 'dark':
-            return '#323232'
-          case 'fairy':
-            return '#ff7af3'
-          case 'unknown':
-            return '#ffb9b9'
-          case 'shadow':
-            return '#757575'
-          }
-          
-      }*/
-
-
         const Color = {
           normal : '#ffe175',
           fighting : '#ff6200',
@@ -109,7 +66,6 @@ export default {
                         }
 
       pokes.value.push(pok)
-      console.log(pok.bg, pok.types)
     }
 
 
