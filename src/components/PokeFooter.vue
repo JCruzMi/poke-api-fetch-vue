@@ -1,5 +1,4 @@
 <template>
-  <div class="card-footer" v-if="poke.stats">
     <div class="progress">
         <div class="progress-bar bg-success" role="progressbar" :style="{width: poke.hp+'%'}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{poke.hp}}</div>
     </div>
@@ -15,10 +14,6 @@
     <div class="progress">
         <div class="progress-bar bg-success" role="progressbar" :style="{width: poke.espdef+'%'}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{poke.espdef}}</div>
     </div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" @click="onStatsClick(poke.id)">
-        cerrar
-    </button>
-  </div>
 </template>
 
 <script>

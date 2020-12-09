@@ -1,31 +1,27 @@
 <template>
-    <div class="col-md-12 col-sm-6 col-xl-3" v-if="poke.stats" >
-        <div class="card" :style="poke.bg" >
+    <div class="col-md-4 col-sm-6 col-xl-3" v-if="poke.stats" >
+        <div class="card" :style="poke.bg" type="button"  @click="onStatsClick(poke.id)">
             <div class="pokemon" >
                 <img :src="poke.img" alt="" width="92" height="92">
             </div>
             <div class="card-body" >
-                <li class="list-group-item d-flex justify-content-between align-items-center" >
+                <li class="list-group-item d-flex justify-content-between align-items-center  list-inline-item" >
                     <span>{{poke.name}}</span>
                 </li>
                 <poke-footer :poke="poke"></poke-footer>
             </div>
         </div>
     </div>
-
-
-    <div class="col-md-4 col-sm-6 col-xl-3" v-if="!poke.stats">
-        <div class="card" :style="poke.bg" >
+    
+    <div class="col-md-4 col-sm-6 col-xl-3">
+        <div class="card" :style="poke.bg" type="button"  @click="onStatsClick(poke.id)">
             <div class="pokemon" >
                 <img :src="poke.img" alt="" width="92" height="92">
             </div>
             <div class="card-body" >
-                <li class="list-group-item d-flex justify-content-between align-items-center" >
+                <li class="list-group-item d-flex justify-content-between align-items-center list-inline-item" >
                     <span>{{poke.name}}</span>
                 </li>
-                 <button type="button" class="btn btn-primary" data-toggle="modal" @click="onStatsClick(poke.id)">
-                    + stats
-                </button>
             </div>
         </div>
     </div>
@@ -61,6 +57,8 @@ export default {
 </script>
 
 <style>
+ 
+
     .card {
       align-items: center;
       margin: 10%;

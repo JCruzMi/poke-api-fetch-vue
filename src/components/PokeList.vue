@@ -1,4 +1,22 @@
 <template>
+  <!-- Small modal dont works
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="modal1">Small modal</button>
+
+  <div class="container">
+    <div class="modal"
+      tabindex="-1" 
+      id="modal1"
+      >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body"> 
+              ...
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
   <poke-header />
 
   <div class="row" >
