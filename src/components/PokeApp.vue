@@ -17,7 +17,7 @@ export default {
   components: { PokeList },
   async setup(){
 
-    function giveColor (type){
+   /**  function giveColor (type){
         switch (type){
           case 'normal':
             return '#ffe175'
@@ -57,12 +57,36 @@ export default {
             return '#757575'
           }
           
-      }
+      }*/
+
+
+        const Color = {
+          normal : '#ffe175',
+          fighting : '#ff6200',
+          flying:'#008db0',
+          ground: '#7f724a',
+          rock: '#908a78',
+          bug: '#85b100',
+          steel:'#c5c5c5',
+          fire:'#ff9000',
+          water:'#00c3c7',
+          grass: '#abff4d',
+          electric: '#fffd4d',
+          psychic:'#613dfe',
+          ice:'#97cdff',
+          dragon:'#ff335c',
+          dark:'#323232',
+          fairy:'#ff7af3',
+          unknown:'#ffb9b9',
+          shadow:'#757575',
+          ghost: '#8d1bdb',
+          poison: '#690081'
+        }
 
     const pokes = ref([])
     provide('pokes',pokes)
 
-    for ( let i = 1; i <= 270 ; i++){
+    for ( let i = 1; i <= 280 ; i++){
       const responsePoke = await fetch('https://pokeapi.co/api/v2/pokemon/'+i)
 
       let pet = await responsePoke.json()
@@ -78,14 +102,16 @@ export default {
                         'speed':pet.stats[5].base_stat,
                         'height':pet.height,
                         'weight':pet.weight,
+                        'types': pet.types[0].type.name,
                         'exp':pet.base_experience,
-                        'types':pet.types[0].type.name,
-                        'bg':{background : giveColor(pet.types[0].type.name)},
+                        'bg':{background : Color[pet.types[0].type.name]},
                         'stats': false
                         }
 
       pokes.value.push(pok)
+      console.log(pok.bg, pok.types)
     }
+
 
     return{pokes}
 
