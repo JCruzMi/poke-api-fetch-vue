@@ -1,19 +1,21 @@
 <template>
-    <div class="col-md-4 col-sm-6 col-xl-3" v-if="poke.stats" >
-        <div class="card" :style="poke.bg" type="button"  @click="onStatsClick(poke.id)">
-            <div class="pokemon" >
-                <img :src="poke.img" alt="" width="92" height="92">
-            </div>
-            <div class="card-body" >
-                <li class="list-group-item d-flex justify-content-between align-items-center  list-inline-item" >
-                    <span>{{poke.name}}</span>
-                </li>
-                <poke-footer :poke="poke"></poke-footer>
+    <div class="poke-card">
+        <div class="unkown" v-if="poke.stats" >
+            <div class="card" :style="poke.bg" type="button"  @click="onStatsClick(poke.id)">
+                <div class="pokemon" >
+                    <img :src="poke.img" alt="" width="92" height="92">
+                </div>
+                <div class="card-body" >
+                    <li class="list-group-item d-flex justify-content-between align-items-center  list-inline-item" >
+                        <span>{{poke.name}}</span>
+                    </li>
+                    <poke-footer :poke="poke"></poke-footer>
+                </div>
             </div>
         </div>
     </div>
     
-    <div class="col-md-4 col-sm-6 col-xl-3" v-if="!poke.stats">
+    <div class="col-md-4 col-sm-6 col-xl-3">
         <div class="card" :style="poke.bg" type="button"  @click="onStatsClick(poke.id)">
             <div class="pokemon" >
                 <img :src="poke.img" alt="" width="92" height="92">
@@ -57,9 +59,31 @@ export default {
 </script>
 
 <style>
- 
+    .poke-card {
+        position: absolute;
+        width: 87%;
+        height: 75%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .poke-card .card{
+        margin-left: 40%;
+        z-index: 10;
+        width: 20%;
+        height: 120px;
+    }
+
+    
+
+    .poke-card .card .pokemon{
+        margin-top: 5%;
+    }
+    
+    
 
     .card {
+        z-index:1;
       align-items: center;
       margin: 10%;
       color: white;

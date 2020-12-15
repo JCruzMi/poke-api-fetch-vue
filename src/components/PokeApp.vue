@@ -43,7 +43,7 @@ export default {
     const pokes = ref([])
     provide('pokes',pokes)
 
-    for ( let i = 1; i <= 280 ; i++){
+    for ( let i = 1; i <= 400 ; i++){
       const responsePoke = await fetch('https://pokeapi.co/api/v2/pokemon/'+i)
 
       let pet = await responsePoke.json()

@@ -1,11 +1,14 @@
-<template>
+<template>  
     <form @submit.prevent="filtrar">
-        <input
-            type="text"
-            class="form-control my-3"
-            placeholder="Buscar pokemon"
-            v-model.trim="texto"
-        >
+        <div class="container">
+            <img class="img" src="https://raw.githubusercontent.com/HybridShivam/pokedex-angular-app/master/pokedex.png">
+            <input
+                type="text"
+                class="form-control my-3"
+                placeholder="Buscar pokemon"
+                v-model.trim="texto"
+            >
+        </div>
   </form>
 </template>
 
@@ -35,5 +38,8 @@ export default {
 </script>
 
 <style>
-
+.img{
+    width: 5%;
+    height: 5%;
+}
 </style>
