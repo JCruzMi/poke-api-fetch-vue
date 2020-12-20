@@ -43,7 +43,7 @@ export default {
     const pokes = ref([])
     provide('pokes',pokes)
 
-    for ( let i = 1; i <= 400 ; i++){
+    for ( let i = 1; i <= 200 ; i++){
       const responsePoke = await fetch('https://pokeapi.co/api/v2/pokemon/'+i)
 
       let pet = await responsePoke.json()
@@ -61,6 +61,7 @@ export default {
                         'weight':pet.weight,
                         'types': pet.types[0].type.name,
                         'exp':pet.base_experience,
+                        'mostrar':true,
                         'bg':{background : Color[pet.types[0].type.name]},
                         'stats': false
                         }

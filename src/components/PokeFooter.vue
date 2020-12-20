@@ -32,6 +32,7 @@ export default {
                 if(item.id === id){
                     item.stats = !item.stats
                 }
+                item.mostrar = !item.mostrar
                 return item
             })
         }

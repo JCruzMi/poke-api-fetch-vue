@@ -15,7 +15,7 @@
         </div>
     </div>
     
-    <div class="col-md-4 col-sm-6 col-xl-3">
+    <div class="col-md-4 col-sm-6 col-xl-3" v-if="poke.mostrar">
         <div class="card" :style="poke.bg" type="button"  @click="onStatsClick(poke.id)">
             <div class="pokemon" >
                 <img :src="poke.img" alt="" width="92" height="92">
@@ -47,8 +47,8 @@ export default {
             pokes.value = pokes.value.map(item => {
                 if(item.id === id){
                     item.stats = !item.stats
-                    console.log(item.stats)
                 }
+                item.mostrar = !item.mostrar 
                 return item
             })
         }

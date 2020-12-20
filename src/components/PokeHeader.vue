@@ -14,7 +14,7 @@
 
 <script>
 
-import {ref, inject} from 'vue'
+import {ref, inject, provide} from 'vue'
 
 export default {
     setup(){
