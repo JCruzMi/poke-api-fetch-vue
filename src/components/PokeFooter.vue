@@ -18,26 +18,10 @@
 
 <script>
 
-import {inject} from 'vue'
-
 export default {
     props:['poke'],
     setup(){
         
-        const pokes = inject('pokes')
-
-        //cambia el valor stats para mostrar o no dando click al boton los elementos 
-        const onStatsClick = id => {
-            pokes.value = pokes.value.map(item => {
-                if(item.id === id){
-                    item.stats = !item.stats
-                }
-                item.mostrar = !item.mostrar
-                return item
-            })
-        }
-
-        return {onStatsClick}
     }
 }
 </script>
