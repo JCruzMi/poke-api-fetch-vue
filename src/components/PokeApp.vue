@@ -1,12 +1,5 @@
 <template>
-  <Suspense>
-    <template #default>
-      <poke-list/>
-    </template>
-    <template #fallback>
-      <div><h1>Loading pokemons...</h1></div>
-    </template>
-  </Suspense>
+  <poke-list/>
 </template>
 
 <script>
@@ -43,6 +36,13 @@ export default {
     const pokes = ref([])
     provide('pokes',pokes)
 
+    //constante que refiere al header, es decir, ocultarlo y mostrarlo
+    const mHeader = ref(true)
+    provide('mHeader',mHeader)
+
+    const mostrar = ref(true)
+    provide('mostrar',mostrar)
+
     for ( let i = 1; i <= 200 ; i++){
       const responsePoke = await fetch('https://pokeapi.co/api/v2/pokemon/'+i)
 
@@ -61,7 +61,6 @@ export default {
                         'weight':pet.weight,
                         'types': pet.types[0].type.name,
                         'exp':pet.base_experience,
-                        'mostrar':true,
                         'bg':{background : Color[pet.types[0].type.name]},
                         'stats': false
                         }

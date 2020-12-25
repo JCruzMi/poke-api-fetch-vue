@@ -5,7 +5,9 @@
         <poke-app/>
       </template>
       <template #fallback>
-        <div>Loading pokemons</div>
+        <div class="d-flex justify-content-center" style="margin-top: 10%">
+          <div class="spinner-border text-light" role="status"></div>
+        </div>
       </template>
     </Suspense>
   </div>

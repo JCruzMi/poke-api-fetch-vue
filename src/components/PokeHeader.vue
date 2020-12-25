@@ -1,13 +1,20 @@
 <template>  
     <form @submit.prevent="filtrar">
         <div class="container">
-            <img class="img" src="https://raw.githubusercontent.com/HybridShivam/pokedex-angular-app/master/pokedex.png">
-            <input
-                type="text"
-                class="form-control my-3"
-                placeholder="Buscar pokemon"
-                v-model.trim="texto"
-            >
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <img class="img" src="https://raw.githubusercontent.com/HybridShivam/pokedex-angular-app/master/pokedex.png">
+                    <div style="width:90%">
+                        <input
+                            type="text"
+                            class="form-control my-3"
+                            placeholder="Buscar pokemon"
+                            v-model.trim="texto"
+                        >
+                    </div>
+                </li>
+            </ul>
+        
         </div>
   </form>
 </template>

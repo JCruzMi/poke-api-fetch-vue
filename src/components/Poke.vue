@@ -1,7 +1,7 @@
 <template>
     <poke-show :poke="poke" v-if="poke.stats"/>
     
-    <div class="col-md-4 col-sm-6 col-xl-3" v-if="poke.mostrar">
+    <div class="col-md-4 col-sm-6 col-xl-3" v-if="mostrar">
         <div class="card" :style="poke.bg" type="button"  @click="onStatsClick(poke.id)">
             <div class="pokemon" >
                 <img :src="poke.img" alt="" width="92" height="92">
@@ -30,17 +30,22 @@ export default {
     setup(){
          const pokes = inject('pokes')
 
+         const mHeader = inject('mHeader')
+
+        const mostrar = inject('mostrar')
         //cambia el valor stats para mostrar o no dando click al boton los elementos 
         const onStatsClick = id => {
+            mHeader.value = false
+            mostrar.value = false
             pokes.value = pokes.value.map(item => {
                 if(item.id === id){
                     item.stats = !item.stats
                 }
-                item.mostrar = !item.mostrar 
+                
                 return item
             })
         }
-        return {onStatsClick}
+        return {onStatsClick, mostrar}
     }
 }
 
