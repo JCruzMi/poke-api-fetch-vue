@@ -68,7 +68,6 @@ export default {
       pokes.value.push(pok)
     }
 
-
     return{pokes}
 
   }
